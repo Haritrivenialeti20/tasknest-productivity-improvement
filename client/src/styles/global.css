@@ -374,3 +374,13 @@ header.welcome-section p {
     font-size: 4rem;
   }
 }
+
+/* Important task controls */
+.important-toggle { display: flex; align-items: center; gap: 0.45rem; margin: 1rem 0; color: var(--text-muted); font-size: 0.85rem; cursor: pointer; }
+.important-toggle input { accent-color: var(--primary); }
+.important-toggle span { color: #94a3b8; }
+.task-main { display: flex; align-items: center; gap: 1rem; min-width: 0; }
+.importance-button { border: 0; background: transparent; color: #cbd5e1; cursor: pointer; display: inline-flex; padding: 0.25rem; }
+.importance-button:hover, .importance-button.important { color: #f59e0b; }
+.points-label { color: #64748b; font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+@media (max-width: 600px) { .task-card-v2 { padding: 1rem; } .task-main { gap: 0.55rem; } .task-text { font-size: 0.95rem; } .points-label { display: none; } }

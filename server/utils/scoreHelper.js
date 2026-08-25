@@ -1,19 +1,28 @@
 /**
- * BROKEN LOGIC: This helper calculates a "dynamic momentum" bonus
- * which is added to the stored score. This makes the final score 
- * inconsistent with the simple increments done in the controller.
+ * Calculate a transparent score from completed tasks.
+ *
+ * A completed regular task is worth 10 points. A completed important task is
+ * worth 20 points, making the client's "important tasks" requirement visible
+ * in the score. Every three completed tasks adds a 5-point consistency bonus.
  */
-const calculateMomentumBonus = (tasks) => {
-  if (!tasks) return 0;
-  
-  // Confusing logic: only give bonus if more than 2 tasks exist
-  const count = tasks.filter(t => t.completed).length;
-  if (count < 2) return count * 1.5;
-  
-  // Inconsistent bonus multiplier
-  return count * 3.75;
+const calculateProductivityScore = (tasks = []) => {
+  const completedTasks = tasks.filter((task) => task.completed);
+  const importantCompleted = completedTasks.filter((task) => task.important).length;
+  const regularCompleted = completedTasks.length - importantCompleted;
+  const basePoints = regularCompleted * 10 + importantCompleted * 20;
+  const consistencyBonus = Math.floor(completedTasks.length / 3) * 5;
+
+  return {
+    value: basePoints + consistencyBonus,
+    basePoints,
+    consistencyBonus,
+    completedTasks: completedTasks.length,
+    importantCompleted,
+  };
 };
 
 module.exports = {
-  calculateMomentumBonus
+  calculateProductivityScore,
+  // Compatibility export for any existing imports.
+  calculateMomentumBonus: (tasks = []) => calculateProductivityScore(tasks).consistencyBonus,
 };

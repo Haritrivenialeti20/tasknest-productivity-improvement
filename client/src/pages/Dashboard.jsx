@@ -21,7 +21,19 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    getTasks();
+    let active = true;
+    fetchTasks()
+      .then((data) => {
+        if (active) {
+          setTasks(data);
+          setLoading(false);
+        }
+      })
+      .catch((err) => {
+        console.error('Error fetching tasks:', err);
+        if (active) setLoading(false);
+      });
+    return () => { active = false; };
   }, []);
 
   return (
