@@ -20,10 +20,10 @@ From `server/`, install dependencies, configure `DATABASE_URL`, run `npx prisma 
 
 ## Deployment links
 
-- Frontend Deployment Link: To be added after deployment credentials are available.
-- Backend Deployment Link: To be added after deployment credentials are available.
+- Frontend Deployment Link: Not deployed in this environment because no Vercel or Netlify credentials were provided.
+- Backend Deployment Link: Not deployed in this environment because no Render/Railway/PostgreSQL credentials were provided.
 
 ## Submission
 
-- Pull Request Link: To be added after the public repository is created.
-- Google Drive Video Link: To be added after the explanation video is uploaded.
+- Pull Request Link: https://github.com/Haritrivenialeti20/tasknest-productivity-improvement/pull/1
+- Google Drive Video Link: https://drive.google.com/file/d/1wEJPWU9t0xdGAWKnDIaB4WoRi8qyoBOR/view?usp=sharing
