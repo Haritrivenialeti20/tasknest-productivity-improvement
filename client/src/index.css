@@ -396,3 +396,31 @@ body {
     font-size: 4rem;
   }
 }
+
+
+.important-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.important-toggle input { accent-color: #f59e0b; }
+
+.importance-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: #cbd5e1;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+.importance-btn:hover,
+.importance-btn.active { color: #f59e0b; background: #fffbeb; }
